@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900">
       {/* Hero Section amélioré */}
-      <section className="relative py-24 px-4 sm:px-6 w-full overflow-hidden">
+      <section className="relative pb-24 px-4 sm:px-6 w-full overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-indigo-900/20"></div>
         

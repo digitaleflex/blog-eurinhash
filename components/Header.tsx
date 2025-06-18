@@ -6,6 +6,7 @@ import Search from "./Search";
 import { navItems } from "./navItems";
 import { Menu, X, ChevronDown, Search as SearchIcon } from "lucide-react";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 // Données d'exemple pour la recherche - à remplacer par vos vraies données
 const samplePosts = [
@@ -24,6 +25,7 @@ const samplePosts = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [submenuOpen, setSubmenuOpen] = React.useState<string | null>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -37,7 +39,7 @@ export default function Header() {
   }, [searchOpen]);
 
   return (
-    <header className="w-full border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 z-50">
+    <header className={`w-full bg-white dark:bg-zinc-900 z-50 sticky top-0 left-0 right-0 backdrop-blur supports-[backdrop-filter]:bg-white/90 supports-[backdrop-filter]:dark:bg-zinc-900/90 shadow-sm ${pathname !== '/' ? 'border-b border-zinc-200 dark:border-zinc-800' : ''}`}>
       <div className="w-full max-w-screen-2xl mx-auto flex items-center px-4 sm:px-8 py-4">
         {/* Logo à gauche */}
         <Link href="/" className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 flex-shrink-0">
