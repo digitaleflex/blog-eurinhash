@@ -63,12 +63,13 @@ const samplePosts = [
 ]
 
 interface BlogPageProps {
-  searchParams: { page?: string }
+  searchParams: Promise<{ page?: string }>
 }
 
 // Composant asynchrone pour charger les données
 async function BlogContent({ searchParams }: BlogPageProps) {
-  const currentPage = parseInt(searchParams.page || '1')
+  const params = await searchParams
+  const currentPage = parseInt(params.page || '1')
   const postsPerPage = 6
   const totalPages = Math.ceil(samplePosts.length / postsPerPage)
   const startIndex = (currentPage - 1) * postsPerPage
